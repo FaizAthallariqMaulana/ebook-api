@@ -31,3 +31,8 @@ Route:delete('/books/{id}', [BookController::class, 'destroy']);
 
 Route::resource('books', BookController::class)->except('create', 'edit');
 Route::resource('authors', AuthorController::class)->except('create', 'edit');
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/me', [AuthController::class, 'me']);
+Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
